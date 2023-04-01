@@ -1,3 +1,4 @@
+import {useState} from "react"
 import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
@@ -18,26 +19,37 @@ const tasks = [
   },
 ];
 
-const taskHide = false;
+
 
 function App() {
+
+  const [taskHide, setTaskHide] = useState(false);
+
+  const toggleTaskHide = () => {
+    setTaskHide(taskHide => !taskHide);
+  };
+
   return (
     <div>
       <Container>
 
-        <Header 
-        title={"Lista zadań"} 
-        />
-
-        <Section 
-        title={"Dodaj nowe zadanie"} 
-        body={<Form />} 
+        <Header
+          title={"Lista zadań"}
         />
 
         <Section
-        title={"Lista zadań"}
-        body={<Tasks tasks={tasks} taskHide={taskHide} />}
-        extraContent={<Buttons tasks={tasks} taskHide={taskHide} />}
+          title={"Dodaj nowe zadanie"}
+          body={<Form />}
+        />
+
+        <Section
+          title={"Lista zadań"}
+          body={<Tasks tasks={tasks} taskHide={taskHide} />}
+
+          extraContent={<Buttons
+            tasks={tasks}
+            taskHide={taskHide}
+            toggleTaskHide={toggleTaskHide} />}
         />
       </Container>
     </div>

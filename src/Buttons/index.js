@@ -6,7 +6,7 @@ const Buttons = (props) => {
        return ( 
        <span className="form--buttons">
     <>
-       <button className="form__fieldset--button">
+       <button onClick={props.toggleTaskHide} className="form__fieldset--button">
            {props.taskHide ? "Pokaż ukończone" : "Ukryj ukończone"}
        </button>
        <button 
