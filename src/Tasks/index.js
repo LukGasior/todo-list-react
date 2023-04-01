@@ -3,14 +3,24 @@ import "./style.css";
 const Tasks = (props) => (
     <ul className="section__list">
         {props.tasks.map(task => (
-            <li className={`form__list--bottom ${task.done && props.taskHide ?
-                " form__list--decorationHidden" : ""}`}
+            <li
                 key={task.id}
+                className={`form__list--bottom ${task.done && props.taskHide ?
+                    " form__list--decorationHidden" : ""}`}
+
             >
-                <button className="form___buttonDone">✔</button>
+                <button
+                onClick
+                    className="form___buttonDone">✔
+                </button>
+
                 <span className={`${task.done ? " form__list--decoration" : ""}`}>
                     {task.content}</span>
-                <button className="form__buttonRemove">🗑</button>
+
+                <button
+                    onClick={() => props.removeTask(task.id)}
+                    className="form__buttonRemove">🗑
+                </button>
 
 
             </li>
