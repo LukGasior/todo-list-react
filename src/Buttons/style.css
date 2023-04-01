@@ -1,0 +1,38 @@
+.form--buttons {
+    align-self: center;
+}
+
+@media (max-width: 767px) {
+    .form--buttons {
+        display: grid;
+        text-align: center;
+        
+    }
+}
+
+.form__fieldset--button {
+    float: right;
+    color: rgb(0, 143, 143);
+    background-color: transparent;
+    background-repeat: no-repeat;
+    border: none;
+}
+@media (max-width: 767px) {
+    .form__fieldset--button {
+      padding: 10px;
+        
+    }
+}
+
+.form__fieldset--button:hover {
+    color: rgb(0, 180, 180);
+}
+
+.form__fieldset--button:active {
+    color: rgb(0, 151, 151);
+
+}
+
+.form__fieldset--button:disabled {
+    color: rgb(58, 58, 58);
+}
