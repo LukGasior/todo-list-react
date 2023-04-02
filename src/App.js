@@ -1,4 +1,4 @@
-import {useState} from "react"
+import { useState } from "react"
 import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
@@ -10,22 +10,22 @@ function App() {
 
   const [taskHide, setTaskHide] = useState(false);
   const [tasks, setTasks] = useState(
-[    {
-  id: 1,
-  content: "Wstań",
-  done: true,
-},
-{
-  id: 2,
-  content: "Umyj się",
-  done: false,
-},]
+    [{
+      id: 1,
+      content: "Wstań",
+      done: true,
+    },
+    {
+      id: 2,
+      content: "Umyj się",
+      done: false,
+    },]
   );
 
   const toggleTaskDone = (id) => {
     setTasks(tasks => tasks.map(task => {
       if (task.id === id) {
-        return {...task, done: !task.done};
+        return { ...task, done: !task.done };
       }
       return task;
     }));
@@ -33,7 +33,7 @@ function App() {
 
   const removeTask = (id) => {
     setTasks(tasks => tasks.filter(task => task.id !== id));
- 
+
   };
 
   const toggleTaskHide = () => {
@@ -42,11 +42,22 @@ function App() {
 
   const setAllDone = () => {
     setTasks(tasks => tasks.map(task => ({
-      ...task, 
+      ...task,
       done: true,
     })));
   };
-  
+
+  const addNewTask = (content) => {
+    setTasks(tasks => [
+      ...tasks,
+      {
+        content,
+        done: false,
+        id: tasks.length === 0 ? 1 : tasks[tasks.length - 1].id + 1,
+      },
+    ]);
+  };
+
 
   return (
     <div>
@@ -58,13 +69,13 @@ function App() {
 
         <Section
           title={"Dodaj nowe zadanie"}
-          body={<Form />}
+          body={<Form addNewTask={addNewTask} />}
         />
 
         <Section
           title={"Lista zadań"}
-          body={<Tasks 
-            tasks={tasks} 
+          body={<Tasks
+            tasks={tasks}
             taskHide={taskHide}
             removeTask={removeTask}
             toggleTaskDone={toggleTaskDone} />}

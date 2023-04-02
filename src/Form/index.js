@@ -1,11 +1,39 @@
+
+import { useState } from "react";
 import "./style.css";
 
-const Form = (props) => (
-    <form className="form__body">
-        <input className="form__input" placeholder="Co jest do zrobienia?" />
-        <button className="form__button">Dodaj zadanie</button>
-    </form>
-)
+const Form = ({ addNewTask }) => {
+
+    const [newTaskContent, setNewTaskContent] = useState("");
+    const onFormSubmit = (e) => {
+        e.preventDefault();
+
+        if (newTaskContent === "") {
+            return
+        }
+
+        {
+            addNewTask(newTaskContent.trim());
+            setNewTaskContent("");
+        }
+    };
+
+    return (
+        (
+            <form
+                className="form__body"
+                onSubmit={onFormSubmit}
+            >
+                <input className="form__input"
+                    placeholder="Co jest do zrobienia?"
+                    value={newTaskContent}
+                    onChange={(e) => setNewTaskContent(e.target.value)}
+                />
+                <button className="form__button">Dodaj zadanie</button>
+            </form>
+        )
+    )
+}
 export default Form;
 
 
