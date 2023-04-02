@@ -28,17 +28,25 @@ function App() {
         return {...task, done: !task.done};
       }
       return task;
-    }))
-  }
+    }));
+  };
 
   const removeTask = (id) => {
     setTasks(tasks => tasks.filter(task => task.id !== id));
  
-  }
+  };
 
   const toggleTaskHide = () => {
     setTaskHide(taskHide => !taskHide);
   };
+
+  const setAllDone = () => {
+    setTasks(tasks => tasks.map(task => ({
+      ...task, 
+      done: true,
+    })));
+  };
+  
 
   return (
     <div>
@@ -64,6 +72,7 @@ function App() {
           extraContent={<Buttons
             tasks={tasks}
             taskHide={taskHide}
+            setAllDone={setAllDone}
             toggleTaskHide={toggleTaskHide} />}
         />
       </Container>

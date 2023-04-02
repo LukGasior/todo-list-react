@@ -11,9 +11,10 @@ const Buttons = (props) => {
                         {props.taskHide ? "Pokaż ukończone" : "Ukryj ukończone"}
                     </button>
                     <button
+                        onClick={props.setAllDone}
                         className="form__fieldset--button"
                         disabled={props.tasks.every(({ done }) => done)}
-                    >Ukryj Wszystkie</button>
+                    >Ukończ wszystkie</button>
 
                 </>
             </span>)
