@@ -10,7 +10,7 @@ const Tasks = (props) => (
 
             >
                 <button
-                onClick
+                onClick={() => props.toggleTaskDone(task.id)}
                     className="form___buttonDone">✔
                 </button>
 
