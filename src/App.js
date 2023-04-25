@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Form from "./Form";
 import Tasks from "./Tasks";
 import Buttons from "./Buttons";
@@ -10,8 +10,12 @@ function App() {
 
   const [taskHide, setTaskHide] = useState(false);
   const [tasks, setTasks] = useState(
-    []
+    JSON.parse(localStorage.getItem("tasks"))
   );
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks])
 
   const toggleTaskDone = (id) => {
     setTasks(tasks => tasks.map(task => {
