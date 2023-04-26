@@ -9,13 +9,15 @@ import Container from "./Container";
 function App() {
 
   const [taskHide, setTaskHide] = useState(false);
+  const getTasks = localStorage.getItem("tasks");
   const [tasks, setTasks] = useState(
-    JSON.parse(localStorage.getItem("tasks"))
+    getTasks ? JSON.parse(getTasks) : []
   );
 
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks])
+
 
   const toggleTaskDone = (id) => {
     setTasks(tasks => tasks.map(task => {
