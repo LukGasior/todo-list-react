@@ -1,8 +1,16 @@
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import "./style.css";
 
 const Form = ({ addNewTask }) => {
+
+    const inputRef = useRef(null);
+
+    useEffect(() => {
+        inputRef.current.focus();
+    }, [])
+
+
 
     const [newTaskContent, setNewTaskContent] = useState("");
     const onFormSubmit = (e) => {
@@ -17,6 +25,7 @@ const Form = ({ addNewTask }) => {
         }
     };
 
+
     return (
         (
             <form
@@ -25,6 +34,7 @@ const Form = ({ addNewTask }) => {
             >
                 <input className="form__input"
                     placeholder="Co jest do zrobienia?"
+                    ref={inputRef}
                     value={newTaskContent}
                     onChange={(e) => setNewTaskContent(e.target.value)}
                 />
