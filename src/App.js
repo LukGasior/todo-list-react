@@ -15,8 +15,6 @@ function App() {
   const toggleTaskHide = () => {
     setTaskHide(taskHide => !taskHide);
   };
-
-
   const {
     tasks,
     toggleTaskDone,
