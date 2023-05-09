@@ -1,8 +1,6 @@
 
 .section__list {
-    display: grid;
-    list-style-type: none;
-    padding-inline-start: 0px;
+
 }
 
 .form__list--bottom {

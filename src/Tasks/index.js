@@ -1,7 +1,8 @@
 import "./style.css";
+import { List } from "./style"
 
 const Tasks = (props) => (
-    <ul className="section__list">
+    <List>
         {props.tasks.map(task => (
             <li
                 key={task.id}
@@ -10,7 +11,7 @@ const Tasks = (props) => (
 
             >
                 <button
-                onClick={() => props.toggleTaskDone(task.id)}
+                    onClick={() => props.toggleTaskDone(task.id)}
                     className="form___buttonDone">✔
                 </button>
 
@@ -25,7 +26,7 @@ const Tasks = (props) => (
 
             </li>
         ))}
-    </ul>
+    </List>
 )
 
 export default Tasks;
