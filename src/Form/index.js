@@ -1,6 +1,6 @@
 
 import { useState, useEffect, useRef } from "react";
-import "./style.css";
+import { Wrapper, Input, Button } from "./style"
 
 const Form = ({ addNewTask }) => {
 
@@ -28,18 +28,17 @@ const Form = ({ addNewTask }) => {
 
     return (
         (
-            <form
-                className="form__body"
+            <Wrapper
                 onSubmit={onFormSubmit}
             >
-                <input className="form__input"
+                <Input
                     placeholder="Co jest do zrobienia?"
                     ref={inputRef}
                     value={newTaskContent}
                     onChange={(e) => setNewTaskContent(e.target.value)}
                 />
-                <button className="form__button">Dodaj zadanie</button>
-            </form>
+                <Button>Dodaj zadanie</Button>
+            </Wrapper>
         )
     )
 }
