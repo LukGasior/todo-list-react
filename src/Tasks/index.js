@@ -1,30 +1,33 @@
-import "./style.css";
-import { List } from "./style"
+import { List, Item, Content, Button } from "./style"
 
 const Tasks = (props) => (
     <List>
         {props.tasks.map(task => (
-            <li
+            <Item
                 key={task.id}
-                className={`form__list--bottom ${task.done && props.taskHide ?
-                    " form__list--decorationHidden" : ""}`}
-
+                hidden={task.done && props.taskHide}
             >
-                <button
+                <Button
                     onClick={() => props.toggleTaskDone(task.id)}
-                    className="form___buttonDone">✔
-                </button>
+                    buttonDone
+                >
+                    ✔
+                </Button>
 
-                <span className={`${task.done ? " form__list--decoration" : ""}`}>
-                    {task.content}</span>
+                <Content
+                    done={task.done} >
+                    {task.content}
+                </Content>
 
-                <button
+                <Button
                     onClick={() => props.removeTask(task.id)}
-                    className="form__buttonRemove">🗑
-                </button>
+                    buttonRemove
+                >
+                    🗑
+                </Button>
 
 
-            </li>
+            </Item>
         ))}
     </List>
 )
