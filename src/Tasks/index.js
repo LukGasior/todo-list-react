@@ -8,20 +8,21 @@ const Tasks = (props) => (
                 hidden={task.done && props.taskHide}
             >
                 <Button
+                    taskdone={"true"}
                     onClick={() => props.toggleTaskDone(task.id)}
-                    buttonDone
                 >
                     ✔
                 </Button>
 
                 <Content
-                    done={task.done} >
+                    done={task.done ? "false" : undefined} >
                     {task.content}
                 </Content>
 
                 <Button
+                    taskremove={"true"}
                     onClick={() => props.removeTask(task.id)}
-                    buttonRemove
+
                 >
                     🗑
                 </Button>

@@ -35,7 +35,7 @@ text-decoration: line-through;
 
 export const Button = styled.button`
 
-${(buttonDone) => buttonDone && css`
+${({ taskdone }) => taskdone && css`
 background-color: rgb(1, 170, 9);
     border: none;
     color: white;
@@ -47,7 +47,7 @@ background-color: rgb(1, 170, 9);
     }
 `};
 
-${({ buttonRemove }) => buttonRemove && css`
+${({ taskremove }) => taskremove && css`
 
 background-color: rgb(153, 0, 0);
     border: none;
