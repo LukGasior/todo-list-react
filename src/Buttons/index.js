@@ -1,23 +1,23 @@
-import "./style.css";
+import { Wrapper, Button } from "./style";
 
 const Buttons = (props) => {
 
     if (props.tasks.some(({ done }) => done)) {
         return (
-            <span className="form--buttons">
+            <Wrapper>
                 <>
-                    <button onClick={props.toggleTaskHide}
-                        className="form__fieldset--button">
+                    <Button
+                        onClick={props.toggleTaskHide}
+                    >
                         {props.taskHide ? "Pokaż ukończone" : "Ukryj ukończone"}
-                    </button>
-                    <button
+                    </Button>
+                    <Button
                         onClick={props.setAllDone}
-                        className="form__fieldset--button"
                         disabled={props.tasks.every(({ done }) => done)}
-                    >Ukończ wszystkie</button>
+                    >Ukończ wszystkie</Button>
 
                 </>
-            </span>)
+            </Wrapper>)
     }
 }
 
