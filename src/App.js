@@ -25,7 +25,6 @@ function App() {
 
 
   return (
-    <div>
       <Container>
 
         <Header
@@ -52,7 +51,6 @@ function App() {
             toggleTaskHide={toggleTaskHide} />}
         />
       </Container>
-    </div>
   );
 }
 
