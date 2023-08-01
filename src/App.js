@@ -6,6 +6,8 @@ import Header from "./common/Header";
 import Section from "./common/Section";
 import Container from "./common/Container";
 import { useTasks } from "./useTasks"
+import { useSelector } from "react-redux";
+import { selectTasks } from "./features/task/tasksSlice";
 
 
 function App() {
@@ -15,8 +17,11 @@ function App() {
   const toggleTaskHide = () => {
     setTaskHide(taskHide => !taskHide);
   };
+
+  const { tasks } = useSelector(selectTasks);
+
   const {
-    tasks,
+    //tasks,
     toggleTaskDone,
     removeTask,
     setAllDone,
@@ -25,32 +30,32 @@ function App() {
 
 
   return (
-      <Container>
+    <Container>
 
-        <Header
-          title={"Lista zadań"}
-        />
+      <Header
+        title={"Lista zadań"}
+      />
 
-        <Section
-          title={"Dodaj nowe zadanie"}
-          body={<Form addNewTask={addNewTask} />}
-        />
+      <Section
+        title={"Dodaj nowe zadanie"}
+        body={<Form addNewTask={addNewTask} />}
+      />
 
-        <Section
-          title={"Lista zadań"}
-          body={<Tasks
-            tasks={tasks}
-            taskHide={taskHide}
-            removeTask={removeTask}
-            toggleTaskDone={toggleTaskDone} />}
+      <Section
+        title={"Lista zadań"}
+        body={<Tasks
+          tasks={tasks}
+          taskHide={taskHide}
+          removeTask={removeTask}
+          toggleTaskDone={toggleTaskDone} />}
 
-          extraContent={<Buttons
-            tasks={tasks}
-            taskHide={taskHide}
-            setAllDone={setAllDone}
-            toggleTaskHide={toggleTaskHide} />}
-        />
-      </Container>
+        extraContent={<Buttons
+          tasks={tasks}
+          taskHide={taskHide}
+          setAllDone={setAllDone}
+          toggleTaskHide={toggleTaskHide} />}
+      />
+    </Container>
   );
 }
 
