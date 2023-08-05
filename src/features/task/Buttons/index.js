@@ -1,19 +1,23 @@
 import { Wrapper, Button } from "./style";
+import { selectTasks, toggleTaskHide } from "../tasksSlice";
+import { useDispatch, useSelector } from "react-redux";
 
-const Buttons = (props) => {
+const Buttons = ({ setAllDone }) => {
+    const { tasks, taskHide } = useSelector(selectTasks);
+    const dispatch = useDispatch();
 
-    if (props.tasks.some(({ done }) => done)) {
+    if (tasks.some(({ done }) => done)) {
         return (
             <Wrapper>
                 <>
                     <Button
-                        onClick={props.toggleTaskHide}
+                        onClick={() => dispatch(toggleTaskHide())}
                     >
-                        {props.taskHide ? "Pokaż ukończone" : "Ukryj ukończone"}
+                        {taskHide ? "Pokaż ukończone" : "Ukryj ukończone"}
                     </Button>
                     <Button
-                        onClick={props.setAllDone}
-                        disabled={props.tasks.every(({ done }) => done)}
+                        onClick={setAllDone}
+                        disabled={tasks.every(({ done }) => done)}
                     >Ukończ wszystkie</Button>
 
                 </>

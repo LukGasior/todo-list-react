@@ -1,4 +1,3 @@
-import { useState } from "react"
 import Form from "./features/task/Form";
 import Tasks from "./features/task/Tasks";
 import Buttons from "./features/task/Buttons";
@@ -12,17 +11,12 @@ import { selectTasks } from "./features/task/tasksSlice";
 
 function App() {
 
-  const [taskHide, setTaskHide] = useState(false);
-
-  const toggleTaskHide = () => {
-    setTaskHide(taskHide => !taskHide);
-  };
-
   const { tasks } = useSelector(selectTasks);
+
 
   const {
     //tasks,
-    toggleTaskDone,
+    //toggleTaskDone,
     removeTask,
     setAllDone,
     addNewTask,
@@ -45,15 +39,12 @@ function App() {
         title={"Lista zadań"}
         body={<Tasks
           tasks={tasks}
-          taskHide={taskHide}
-          removeTask={removeTask}
-          toggleTaskDone={toggleTaskDone} />}
+
+        />}
 
         extraContent={<Buttons
           tasks={tasks}
-          taskHide={taskHide}
-          setAllDone={setAllDone}
-          toggleTaskHide={toggleTaskHide} />}
+          setAllDone={setAllDone} />}
       />
     </Container>
   );

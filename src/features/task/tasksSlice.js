@@ -9,9 +9,23 @@ const tasksSlice = createSlice({
         addTask: (state, action) => {
             state.tasks.push(action.payload);
         },
+
+        toggleTaskHide: (state) => {
+            state.taskHide = !state.taskHide;
+        },
+        toggleTaskDone: (state, action) => {
+            const index = state.tasks.findIndex(task => task.id === action.payload);
+            state.tasks[index].done = !state.tasks[index].done;
+        },
+        removeTask: (state, action) => {
+            const index = state.tasks.findIndex(task => task.id === action.payload);
+            state.tasks.splice(index, 1)
+        },
+
+
     },
 });
 
-export const { addTask } = tasksSlice.actions;
+export const { addTask, toggleTaskHide, toggleTaskDone, removeTask } = tasksSlice.actions;
 export const selectTasks = state => state.tasks;
 export default tasksSlice.reducer;
