@@ -14,13 +14,6 @@ export const useTasks = () => {
     }, [tasks]);
 
 
-    const setAllDone = () => {
-        setTasks(tasks => tasks.map(task => ({
-            ...task,
-            done: true,
-        })));
-    };
-
     const addNewTask = (content) => {
         setTasks(tasks => [
             ...tasks,
@@ -36,7 +29,6 @@ export const useTasks = () => {
 
     return {
         tasks,
-        setAllDone,
         addNewTask,
     };
 

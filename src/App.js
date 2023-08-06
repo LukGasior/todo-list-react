@@ -15,10 +15,6 @@ function App() {
 
 
   const {
-    //tasks,
-    //toggleTaskDone,
-    removeTask,
-    setAllDone,
     addNewTask,
   } = useTasks();
 
@@ -37,14 +33,9 @@ function App() {
 
       <Section
         title={"Lista zadań"}
-        body={<Tasks
-          tasks={tasks}
+        body={<Tasks />}
 
-        />}
-
-        extraContent={<Buttons
-          tasks={tasks}
-          setAllDone={setAllDone} />}
+        extraContent={<Buttons />}
       />
     </Container>
   );

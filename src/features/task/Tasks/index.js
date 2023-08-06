@@ -2,13 +2,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { List, Item, Content, Button } from "./style"
 import { selectTasks, toggleTaskDone, removeTask } from "../tasksSlice";
 
-const Tasks = (props) => {
-    const { taskHide, index } = useSelector(selectTasks);
+const Tasks = () => {
+    const { taskHide, tasks } = useSelector(selectTasks);
     const dispatch = useDispatch();
 
     return (
         <List>
-            {props.tasks.map(task => (
+            {tasks.map(task => (
                 <Item
                     key={task.id}
                     hidden={task.done && taskHide}
