@@ -21,10 +21,10 @@ const tasksSlice = createSlice({
             const index = state.tasks.findIndex(task => task.id === action.payload);
             state.tasks.splice(index, 1);
         },
-        setAllDone: (state, action) => {
-            state.tasks.forEach(tasks => {
-                tasks.done = true;
-            })
+        setAllDone: (state) => {
+            for (const task of state.tasks) {
+                task.done = true;
+            }
         },
 
 
