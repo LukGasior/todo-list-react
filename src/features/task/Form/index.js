@@ -27,7 +27,7 @@ const Form = () => {
                 content: newTaskContent,
                 done: false,
                 id: nanoid(),
-            }))
+            }));
             setNewTaskContent("");
         }
     };
