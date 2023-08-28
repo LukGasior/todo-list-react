@@ -1,33 +1,33 @@
-import Form from "./features/task/Form";
-import Tasks from "./features/task/Tasks";
-import Buttons from "./features/task/Buttons";
-import Header from "./common/Header";
-import Section from "./common/Section";
-import Container from "./common/Container";
-
+import TasksPage from "../src/features/task/TasksPage/index";
+import Author from "./features/Author";
+import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
 
 function App() {
 
 
   return (
-    <Container>
+    <BrowserRouter basename="/todo-list-react">
+      <nav>
+        <ul>
+          <li>
+            <Link to="/zadania"> Zadania </Link>
+          </li>
+          <li>
+            <Link to="/autor">O autorze</Link>
+          </li>
+        </ul>
+        <Switch>
+          <Route path="/zadania">
+            <TasksPage />
+          </Route>
+          <Route path="/autor">
+            <Author />
+          </Route>
+        </Switch>
+      </nav>
 
-      <Header
-        title={"Lista zadań"}
-      />
+    </BrowserRouter>
 
-      <Section
-        title={"Dodaj nowe zadanie"}
-        body={<Form />}
-      />
-
-      <Section
-        title={"Lista zadań"}
-        body={<Tasks />}
-
-        extraContent={<Buttons />}
-      />
-    </Container>
   );
 }
 
