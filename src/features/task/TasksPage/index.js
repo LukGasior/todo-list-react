@@ -1,9 +1,9 @@
 import Container from "../../../common/Container";
 import Header from "../../../common/Header";
 import Section from "../../../common/Section";
-import Form from "../Form";
-import Tasks from "../Tasks";
-import Buttons from "../Buttons";
+import Form from "../TasksPage/Form";
+import Tasks from "../TasksPage/Tasks";
+import Buttons from "../TasksPage/Buttons";
 
 
 const TasksPage = () => {
