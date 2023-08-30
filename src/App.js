@@ -1,6 +1,7 @@
 import TasksPage from "../src/features/task/TasksPage/index";
 import Author from "./features/Author";
 import { BrowserRouter, Link, Route, Switch } from "react-router-dom";
+import TaskPage from "./features/task/TaskPage";
 
 function App() {
 
@@ -17,6 +18,9 @@ function App() {
           </li>
         </ul>
         <Switch>
+          <Route path="/zadania/:id">
+            <TaskPage />
+          </Route>
           <Route path="/zadania">
             <TasksPage />
           </Route>

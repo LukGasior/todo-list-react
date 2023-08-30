@@ -39,4 +39,7 @@ export const { addTask, toggleTaskHide, toggleTaskDone, removeTask, setAllDone }
 export const selectTasks = state => selectTasksState(state).tasks;
 export const selectTaskHide = state => selectTasksState(state).taskHide;
 
+export const getTaskById = (state, taskId) =>
+    selectTasks(state).find(({ id }) => id === taskId);
+
 export default tasksSlice.reducer;

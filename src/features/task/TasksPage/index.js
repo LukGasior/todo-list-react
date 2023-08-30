@@ -7,6 +7,7 @@ import Buttons from "../TasksPage/Buttons";
 
 
 const TasksPage = () => {
+    const location = useLocation();
 
     return (
 
