@@ -4,6 +4,7 @@ import Section from "../../../common/Section";
 import Form from "../TasksPage/Form";
 import Tasks from "../TasksPage/Tasks";
 import Buttons from "../TasksPage/Buttons";
+import Search from "./Search";
 
 
 const TasksPage = () => {
@@ -21,6 +22,11 @@ const TasksPage = () => {
             <Section
                 title={"Dodaj nowe zadanie"}
                 body={<Form />}
+            />
+
+            <Section
+                title={"Wyszukiwarka"}
+                body={<Search />}
             />
 
             <Section
